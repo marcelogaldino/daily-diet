@@ -2,7 +2,7 @@ export default {
     COLORS: {
         WHITE: '#FFFFFF',
 
-        GREEN_LIGHT: '#E5F0DBv',
+        GREEN_LIGHT: '#E5F0DB',
         GREEN_MID: '#CBE4B4',
         GREEN_DARK: '#639339',
 
@@ -19,8 +19,8 @@ export default {
         GRAY_700: '#FAFAFA'
     },
     FONT_FAMILY: {
-        REGULAR: 'Roboto_400Regular',
-        BOLD: 'Roboto_700Bold'
+        REGULAR: 'NunitoSans_400Regular',
+        BOLD: 'NunitoSans_700Bold'
     },
     FONT_SIZE: {
         SM: 12,
