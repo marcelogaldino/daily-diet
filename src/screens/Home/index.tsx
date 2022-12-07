@@ -1,23 +1,77 @@
+import { Button } from '@components/Button';
+import { DetailsCard } from '@components/DetailsCard';
 import { Header } from '@components/Header';
-import { ArrowUpRight } from 'phosphor-react-native'
+import { ListEmpty } from '@components/ListEmpty';
+import { MealCard } from '@components/MealCard';
+import { ArrowUpRight, Plus } from 'phosphor-react-native'
+import { useState } from 'react';
+import { SectionList } from 'react-native';
 import { useTheme } from 'styled-components';
-import { Container, DetailsCard, ContainerIcon, ButtonIcon, PercentInfo, PercentInfoDescription } from './styles';
+import {
+    Container,
+    Title,
+    Date,
+} from './styles';
 
 export function Home() {
+    const [meals, setMeals] = useState([
+        {
+            date: "12.08.22",
+            data: ["Pizza", "Burger", "Risotto"]
+        },
+        {
+            date: "13.08.22",
+            data: ["Pizza", "Burger", "Risotto"]
+        },
+    ])
+
     const theme = useTheme()
 
     return (
         <Container >
             <Header />
-            <DetailsCard>
-                <ContainerIcon>
-                    <ButtonIcon>
-                        <ArrowUpRight size={24} color={theme.COLORS.GREEN_DARK} />
-                    </ButtonIcon>
-                </ContainerIcon>
-                <PercentInfo>90,86%</PercentInfo>
-                <PercentInfoDescription>das refeições dentro da dieta</PercentInfoDescription>
+
+            <DetailsCard
+                percentInfo='90,86%'
+                description='das refeições dentro da dieta'
+                iconPosition='END'
+            >
+                <ArrowUpRight size={24} color={theme.COLORS.GREEN_DARK} />
             </DetailsCard>
+
+            <Title>Refeições</Title>
+            <Button
+                title='Nova refeição'
+                hasIcon
+            >
+                <Plus size={24} color={theme.COLORS.WHITE} weight="light" />
+            </Button>
+
+
+            <SectionList
+                sections={meals}
+                renderItem={({ item }) => (
+                    <MealCard
+                        title={item}
+                        backgroundColor={theme.COLORS.RED_MID}
+                        time='20:00'
+                    />
+                )}
+                renderSectionHeader={({ section }) => (
+                    <Date>{section.date}</Date>
+                )}
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={[
+                    { paddingBottom: 100 },
+                    meals.length === 0 && { flex: 1 }
+                ]}
+                ListEmptyComponent={() => (
+                    <ListEmpty
+                        message='Você não possui refeições cadastradas!'
+                    />
+                )}
+            />
+
         </Container>
     )
 }
