@@ -3,6 +3,7 @@ import { DetailsCard } from '@components/DetailsCard';
 import { Header } from '@components/Header';
 import { ListEmpty } from '@components/ListEmpty';
 import { MealCard } from '@components/MealCard';
+import { useNavigation } from '@react-navigation/native';
 import { ArrowUpRight, Plus } from 'phosphor-react-native'
 import { useState } from 'react';
 import { SectionList } from 'react-native';
@@ -26,6 +27,11 @@ export function Home() {
     ])
 
     const theme = useTheme()
+    const navigation = useNavigation()
+
+    function handleCreateNewMeal() {
+        navigation.navigate('newmeal')
+    }
 
     return (
         <Container >
@@ -44,6 +50,7 @@ export function Home() {
             <Button
                 title='Nova refeição'
                 hasIcon
+                onPress={handleCreateNewMeal}
             >
                 <Plus size={24} color={theme.COLORS.WHITE} weight="light" />
             </Button>
