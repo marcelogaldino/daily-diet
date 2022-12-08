@@ -1,5 +1,6 @@
 import { CardStatisticInfo } from '@components/CardStatisticInfo';
 import { DetailsCard } from '@components/DetailsCard';
+import { useNavigation } from '@react-navigation/native';
 import { ArrowLeft } from 'phosphor-react-native';
 import { StatusBar, Text, Modal } from 'react-native';
 import { useTheme } from 'styled-components';
@@ -14,6 +15,11 @@ import {
 
 export function Statistics() {
     const theme = useTheme()
+    const navigation = useNavigation()
+
+    function handleGoback() {
+        navigation.goBack()
+    }
 
     return (
         <>
@@ -24,6 +30,7 @@ export function Statistics() {
                     description='das Refeições dentro da dieta'
                     iconPosition='BEGIN'
                     color={theme.COLORS.RED_LIGHT}
+                    onPress={handleGoback}
                 >
                     <ArrowLeft size={24} color={theme.COLORS.RED_DARK} />
                 </DetailsCard>

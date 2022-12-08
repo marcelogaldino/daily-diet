@@ -33,6 +33,10 @@ export function Home() {
         navigation.navigate('newmeal')
     }
 
+    function handleStatistics() {
+        navigation.navigate('statistics')
+    }
+
     return (
         <Container >
             <Header />
@@ -42,6 +46,7 @@ export function Home() {
                 description='das refeições dentro da dieta'
                 iconPosition='END'
                 color={theme.COLORS.RED_LIGHT}
+                onPress={handleStatistics}
             >
                 <ArrowUpRight size={24} color={theme.COLORS.RED_DARK} />
             </DetailsCard>

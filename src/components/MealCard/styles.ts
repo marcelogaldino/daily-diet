@@ -1,9 +1,5 @@
 import styled, { css } from "styled-components/native";
 
-export type StatusColorPropsStyle = {
-    backgroundColor: string
-}
-
 export const Container = styled.View`
     width: 100%;
 
@@ -44,20 +40,3 @@ export const Title = styled.Text`
     `}
 `
 
-export const StatusContainer = styled.View`
-    width: 100%;
-    
-    flex: 1;
-    flex-direction: row;
-    justify-content: flex-end;
-`
-
-export const Status = styled.View<StatusColorPropsStyle>`
-    ${({ backgroundColor }) => css`
-        width: 14px;
-        height: 14px;
-        border-radius: 7px;
-
-        background-color: ${backgroundColor};
-    `}
-`

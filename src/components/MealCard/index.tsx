@@ -1,8 +1,10 @@
-import { Container, MealInfoContainer, TimeInfo, Separator, Title, Status, StatusContainer, StatusColorPropsStyle } from "./styles";
+import { StatusCircle } from "@components/StatusCircle";
+import { Container, MealInfoContainer, TimeInfo, Separator, Title } from "./styles";
 
-type Props = StatusColorPropsStyle & {
+type Props = {
     title: string,
     time: string
+    backgroundColor: string
 }
 
 export function MealCard({ title, time, backgroundColor }: Props) {
@@ -14,9 +16,10 @@ export function MealCard({ title, time, backgroundColor }: Props) {
                 <Title>{title}</Title>
             </MealInfoContainer>
 
-            <StatusContainer>
-                <Status backgroundColor={backgroundColor} />
-            </StatusContainer>
+            <StatusCircle
+                backgroundColor={backgroundColor}
+                size="LG"
+            />
         </Container>
     )
 }
