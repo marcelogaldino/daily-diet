@@ -5,17 +5,18 @@ import {
     ButtonIcon,
     PercentInfo,
     PercentInfoDescription,
-    IconPositionStyleProps
+    IconPositionStyleProps,
+    ColorStyleProps
 } from './styles'
 
-type Props = TouchableOpacityProps & IconPositionStyleProps & {
+type Props = TouchableOpacityProps & IconPositionStyleProps & ColorStyleProps & {
     percentInfo: string
     description: string
 }
 
-export function DetailsCard({ percentInfo, description, iconPosition, children, ...rest }: Props) {
+export function DetailsCard({ percentInfo, description, iconPosition, color, children, ...rest }: Props) {
     return (
-        <Container>
+        <Container color={color}>
             <ContainerIcon iconPosition={iconPosition}>
                 <ButtonIcon {...rest}>
                     {children}

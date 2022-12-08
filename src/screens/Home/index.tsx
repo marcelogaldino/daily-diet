@@ -35,8 +35,9 @@ export function Home() {
                 percentInfo='90,86%'
                 description='das refeições dentro da dieta'
                 iconPosition='END'
+                color={theme.COLORS.RED_LIGHT}
             >
-                <ArrowUpRight size={24} color={theme.COLORS.GREEN_DARK} />
+                <ArrowUpRight size={24} color={theme.COLORS.RED_DARK} />
             </DetailsCard>
 
             <Title>Refeições</Title>

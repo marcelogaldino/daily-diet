@@ -17,14 +17,15 @@ export function Statistics() {
 
     return (
         <>
-            <ContainerHeader>
-                <StatusBar backgroundColor={theme.COLORS.GREEN_LIGHT} translucent />
+            <ContainerHeader color={theme.COLORS.RED_LIGHT}>
+                <StatusBar backgroundColor={theme.COLORS.RED_LIGHT} translucent />
                 <DetailsCard
                     percentInfo='98,86%'
                     description='das Refeições dentro da dieta'
                     iconPosition='BEGIN'
+                    color={theme.COLORS.RED_LIGHT}
                 >
-                    <ArrowLeft size={24} color={theme.COLORS.GREEN_DARK} />
+                    <ArrowLeft size={24} color={theme.COLORS.RED_DARK} />
                 </DetailsCard>
             </ContainerHeader>
 

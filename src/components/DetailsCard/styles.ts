@@ -4,7 +4,11 @@ export type IconPositionStyleProps = {
     iconPosition: "BEGIN" | "END"
 }
 
-export const Container = styled.View`
+export type ColorStyleProps = {
+    color: string
+}
+
+export const Container = styled.View<ColorStyleProps>`
     width: 100%;
 
     padding: 12px 8px 20px 16px;
@@ -12,7 +16,7 @@ export const Container = styled.View`
 
     align-items: center;
 
-    background-color: ${({ theme }) => theme.COLORS.GREEN_LIGHT}
+    background-color: ${({ color }) => color}
 `
 
 export const ContainerIcon = styled.View<IconPositionStyleProps>`

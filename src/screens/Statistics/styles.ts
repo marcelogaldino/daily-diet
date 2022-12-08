@@ -1,10 +1,14 @@
 import { Platform, SafeAreaView, StatusBar } from "react-native";
 import styled, { css } from "styled-components/native";
 
-export const ContainerHeader = styled(SafeAreaView)`
+export type BackgroundColorStylesProp = {
+    color: string
+}
+
+export const ContainerHeader = styled(SafeAreaView) <BackgroundColorStylesProp>`
     height: 30%;
     padding-top: ${Platform.OS === 'android' ? StatusBar.currentHeight : 0}px;
-    background-color: ${({ theme }) => theme.COLORS.GREEN_LIGHT};
+    background-color: ${({ color }) => color};
 `
 
 export const ContainerModal = styled.View`
