@@ -10,8 +10,6 @@ export function HeaderProfile() {
       <ProfileImageContainer>
         <ProfileImage
           source={{ uri: "https://github.com/marcelogaldino.png" }}
-          // width={40}
-          // height={40}
         />
       </ProfileImageContainer>
     </Container>
