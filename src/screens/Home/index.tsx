@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SectionList, StyleSheet } from "react-native";
 import { useTheme } from "styled-components/native";
 import { Plus } from "phosphor-react-native";
@@ -16,6 +16,10 @@ interface StoredMeal {
 }
 
 export function Home() {
+  const [negativeMeals, setNegativeMeals] = useState(0);
+  const [positiveMeals, setPositiveMeals] = useState(0);
+  const [percentageIsOnDietStats, setPercentageIsOnDietStats] = useState(false);
+  const [percentageStats, setPercentageStats] = useState("");
   const [mealsData, setMealsData] = useState<StoredMeal[]>([
     {
       date: "12.08.23",
@@ -51,10 +55,51 @@ export function Home() {
 
   const { COLORS } = useTheme();
 
+  function dietPercentage(partial: number) {
+    const negativeMealsCounter = mealsData.reduce(
+      (accumulator, currentValue) => {
+        currentValue.data.map((meal) => {
+          if (!meal.isOnDiet) {
+            return (accumulator += 1);
+          }
+        });
+        return accumulator;
+      },
+      0
+    );
+
+    const positiveMealsCounter = mealsData.reduce(
+      (accumulator, currentValue) => {
+        currentValue.data.map((meal) => {
+          if (meal.isOnDiet) {
+            return (accumulator += 1);
+          }
+        });
+        return accumulator;
+      },
+      0
+    );
+    setNegativeMeals(negativeMealsCounter);
+    setPositiveMeals(positiveMealsCounter);
+    const percentage = (partial / (negativeMeals + positiveMeals)) * 100;
+    const percentageFormated = percentage.toFixed(2).replace(".", ",");
+    percentage >= 50
+      ? setPercentageIsOnDietStats(true)
+      : setPercentageIsOnDietStats(false);
+    setPercentageStats(percentageFormated);
+  }
+
+  useEffect(() => {
+    dietPercentage(positiveMeals);
+  }, [percentageStats]);
+
   return (
     <Container>
       <HeaderProfile />
-      <MealStats isOnDiet={false} dietPercent="40.96%" />
+      <MealStats
+        isOnDiet={percentageIsOnDietStats}
+        dietPercent={percentageStats}
+      />
       <Title>Refeições</Title>
       <Button title="Nova refeição">
         <Plus color={COLORS.WHITE} />

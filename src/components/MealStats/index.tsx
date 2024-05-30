@@ -17,7 +17,7 @@ export function MealStats({ dietPercent, isOnDiet }: Props) {
       <ArrowIconUpRightButton>
         <ArrowIconUpRight isOnDiet={isOnDiet} />
       </ArrowIconUpRightButton>
-      <Title>{dietPercent}</Title>
+      <Title>{dietPercent}%</Title>
       <Description>das refeições dentro da dieta</Description>
     </Container>
   );
