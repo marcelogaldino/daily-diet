@@ -15,3 +15,11 @@ export const Title = styled.Text`
     color: ${theme.COLORS.GRAY_100};
   `}
 `;
+
+export const SectionTitle = styled.Text`
+  ${({ theme }) => css`
+    font-size: ${theme.FONT_SIZE.FONT_18}px;
+    font-family: ${theme.FONT_FAMILY.BOLD};
+    color: ${theme.COLORS.GRAY_100};
+  `}
+`;
