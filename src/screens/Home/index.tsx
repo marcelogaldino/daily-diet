@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { SectionList, StyleSheet } from "react-native";
+import { SectionList } from "react-native";
 import { useTheme } from "styled-components/native";
 import { Plus } from "phosphor-react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import { MealStats } from "@components/MealStats";
 import { HeaderProfile } from "@components/HeaderProfile";
@@ -53,6 +54,7 @@ export function Home() {
     },
   ]);
 
+  const navigation = useNavigation();
   const { COLORS } = useTheme();
 
   function dietPercentage(partial: number) {
@@ -89,6 +91,17 @@ export function Home() {
     setPercentageStats(percentageFormated);
   }
 
+  function handleNavigateToDashboard() {
+    navigation.navigate("dashboard", {
+      bestSequence: 20,
+      isOnDiet: percentageIsOnDietStats,
+      negativeMeals,
+      positiveMeals,
+      percentageStats,
+      totalMeals: positiveMeals + negativeMeals,
+    });
+  }
+
   useEffect(() => {
     dietPercentage(positiveMeals);
   }, [percentageStats]);
@@ -99,6 +112,7 @@ export function Home() {
       <MealStats
         isOnDiet={percentageIsOnDietStats}
         dietPercent={percentageStats}
+        onPressIconButton={handleNavigateToDashboard}
       />
       <Title>Refeições</Title>
       <Button title="Nova refeição">

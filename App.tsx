@@ -1,13 +1,14 @@
-import { ActivityIndicator, StatusBar, Text, View } from "react-native";
+import { StatusBar } from "react-native";
 import {
   useFonts,
   Nunito_400Regular,
   Nunito_700Bold,
 } from "@expo-google-fonts/nunito";
-import { Home } from "@screens/Home";
 import { ThemeProvider } from "styled-components/native";
-import theme from "@theme/index";
 import { Loading } from "@components/Loading";
+import theme from "@theme/index";
+
+import { Routes } from "src/routes";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -22,7 +23,7 @@ export default function App() {
         translucent
         backgroundColor="transparent"
       />
-      {fontsLoaded ? <Home /> : <Loading />}
+      {fontsLoaded ? <Routes /> : <Loading />}
     </ThemeProvider>
   );
 }

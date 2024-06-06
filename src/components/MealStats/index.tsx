@@ -9,12 +9,13 @@ import {
 
 type Props = DietStatsStyleProps & {
   dietPercent: string;
+  onPressIconButton: () => void;
 };
 
-export function MealStats({ dietPercent, isOnDiet }: Props) {
+export function MealStats({ dietPercent, isOnDiet, onPressIconButton }: Props) {
   return (
     <Container isOnDiet={isOnDiet}>
-      <ArrowIconUpRightButton>
+      <ArrowIconUpRightButton onPress={onPressIconButton}>
         <ArrowIconUpRight isOnDiet={isOnDiet} />
       </ArrowIconUpRightButton>
       <Title>{dietPercent}%</Title>
