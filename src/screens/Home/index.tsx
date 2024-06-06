@@ -31,6 +31,11 @@ export function Home() {
           isOnDiet: false,
         },
         {
+          meal: "Pizza",
+          time: "12:00",
+          isOnDiet: false,
+        },
+        {
           meal: "Hamburguer",
           time: "12:00",
           isOnDiet: false,
@@ -102,6 +107,10 @@ export function Home() {
     });
   }
 
+  function handleCreateMeal() {
+    navigation.navigate("newMeal");
+  }
+
   useEffect(() => {
     dietPercentage(positiveMeals);
   }, [percentageStats]);
@@ -115,7 +124,7 @@ export function Home() {
         onPressIconButton={handleNavigateToDashboard}
       />
       <Title>Refeições</Title>
-      <Button title="Nova refeição">
+      <Button title="Nova refeição" onPress={handleCreateMeal}>
         <Plus color={COLORS.WHITE} />
       </Button>
       <SectionList
