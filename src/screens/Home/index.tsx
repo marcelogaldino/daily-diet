@@ -108,7 +108,7 @@ export function Home() {
   }
 
   function handleCreateMeal() {
-    navigation.navigate("newMeal");
+    navigation.navigate("newMealForm");
   }
 
   useEffect(() => {

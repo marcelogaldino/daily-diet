@@ -2,7 +2,7 @@ import styled, { css } from "styled-components/native";
 import { ArrowUpRight } from "phosphor-react-native";
 
 export type DietStatsStyleProps = {
-  isOnDiet: boolean;
+  isOnDiet?: boolean;
 };
 
 export const Container = styled.View<DietStatsStyleProps>`

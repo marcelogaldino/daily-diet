@@ -5,13 +5,20 @@ type Props = TouchableOpacityProps & {
   title: string;
   type?: ButtonTypeStyleProps;
   iconName?: string;
+  isDisabled?: boolean;
 };
 
-export function Button({ title, type = "LARGE", children, ...rest }: Props) {
+export function Button({
+  title,
+  type = "LARGE",
+  children,
+  isDisabled,
+  ...rest
+}: Props) {
   return (
-    <Container type={type} {...rest}>
+    <Container type={type} isDisabled={isDisabled} {...rest}>
       {children}
-      <Title>{title}</Title>
+      <Title isDisabled={isDisabled}>{title}</Title>
     </Container>
   );
 }

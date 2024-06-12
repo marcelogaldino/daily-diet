@@ -1,6 +1,6 @@
 import { Container, Logo, ProfileImageContainer, ProfileImage } from "./styles";
 
-import LogoImg from "@assets/logo.png";
+import LogoImg from "@assets/logo/logo.png";
 
 export function HeaderProfile() {
   return (

@@ -5,7 +5,7 @@ import {
   ArrowIconUpRightButton,
   DescriptionHeader,
   TitleHeader,
-  ModalContent,
+  Content,
   ContainerMealInfo,
 } from "./styles";
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -49,7 +49,7 @@ export function MealsDashboard() {
         <DescriptionHeader>das refeições dentro da dieta</DescriptionHeader>
       </Header>
 
-      <ModalContent>
+      <Content>
         <MealInfo
           numberInfo={bestSequence}
           description="melhor sequência de pratos dentro da dieta"
@@ -74,7 +74,7 @@ export function MealsDashboard() {
             size="SMALL"
           />
         </ContainerMealInfo>
-      </ModalContent>
+      </Content>
     </Container>
   );
 }

@@ -1,8 +1,10 @@
 import styled, { css } from "styled-components/native";
 
+export type ContainerSizeProps = "LARGE" | "SMALL";
+
 type ContainerStyleProps = {
   color: string;
-  size?: "LARGE" | "SMALL";
+  size?: ContainerSizeProps;
 };
 
 export const Container = styled.View<ContainerStyleProps>`
